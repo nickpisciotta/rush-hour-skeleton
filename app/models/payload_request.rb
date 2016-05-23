@@ -51,4 +51,30 @@ class PayloadRequest < ActiveRecord::Base
     self.order('event_id DESC').includes(:event).pluck(:name).uniq
   end
 
+  def self.response_times_across_all_requests
+    self.pluck(:responded_in).reverse
+    # payload_requests.order('responded_in DESC').pluck(:responded_in)
+  end
+
+  def self.average_response_time
+    self.average(:responded_in).truncate
+  end
+
+  def self.http_verbs_associated
+    self.includes(:request).pluck(:verb).uniq
+  end
+
+  def self.most_popular_referrers
+    count_hash = self.includes(:referrer).group(:address).order('count_id DESC')
+    ordered_hash = count_hash.count('id').keys[0..2]
+  end
+
+  def self.most_popular_user_agents
+    joins(:user_agent_b).group(:browser, :platform).order(count: :desc).count.keys.take(3)
+  end
+
+  def self.web_browser_breakdown
+    self.includes(:user_agent_b).pluck(:browser).uniq
+  end
+
 end

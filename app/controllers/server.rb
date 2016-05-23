@@ -53,10 +53,10 @@ module RushHour
         if @requests.count > 0
           erb :index
         else
-          body "Hmm.. it seems as if no payload data has been recieved for this source."
+          body "No payload data has been recieved for this source."
         end
       else
-        body "Hmm.. it seems as if the identifier does not exist."
+        body "The identifier does not exist."
       end
     end
 

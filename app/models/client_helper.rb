@@ -7,7 +7,7 @@ module ClientHelper
   def find_urls_from_a_payload_requests(identifier, relativepath)
     @client = find_client(identifier)
     url = "http://#{identifier}.com/#{relativepath}"
-    @requested_url = @client.find_urls_by_relative_paths(url)
+    @single_url = @client.find_urls_by_relative_paths(url)
   end
 
 end
