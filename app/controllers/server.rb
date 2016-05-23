@@ -61,9 +61,9 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do |identifier, relativepath|
-      find_urls_from_a_payload_requests(identifier, realtivepath)
+      find_urls_from_a_payload_requests(identifier, relativepath)
       @single_url.count > 0 ?  (erb :show) : (erb :not_requested)
     end
-    
+
   end
 end
