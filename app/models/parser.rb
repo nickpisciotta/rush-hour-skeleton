@@ -67,14 +67,5 @@ class Parser
                            :key =>          sha_generator(string)
                           )
 
-
-  # payload_request = PayloadRequest.new(requested_at: requested)
-  #
-  # payload_request.url.where(address: "hello.com").first_or_create
-  # payload_request.request_type.create(address: "hello.com")
-  # payload_request.event_name.create(address: "hello.com")
-  # payload_request.url.create(address: "hello.com")
-  # payload_request.url.create(address: "hello.com")
-  # payload_request.save
   end
 end

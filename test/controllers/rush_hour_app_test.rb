@@ -23,7 +23,7 @@ class RushHourAppTest < Minitest::Test
     assert_equal 1, Client.count
   end
 
-  def test_the_application_errors_400_if_client_is_invalid
+  def test_the_application_errors_400_if_client_is_missing_identifier
     post '/sources', {rootUrl: "http://jumpstartlab.com"}
 
     assert_equal 400, last_response.status
@@ -51,7 +51,7 @@ class RushHourAppTest < Minitest::Test
     assert_equal 0, PayloadRequest.count
   end
 
-  def test_the_application_errors_400_when_payload_is_not_valid
+  def test_the_application_errors_400_when_payload_is_missing_all_fields
     post '/sources', {identifier: "jumpstartlab", rootUrl:"http://jumpstartlab.com"}
     post '/sources/jumpstartlab/data', "payload={}"
 
@@ -61,7 +61,7 @@ class RushHourAppTest < Minitest::Test
     assert_equal 0, PayloadRequest.count
   end
 
-  def test_the_application_errors_400_when_no_payload_is_given
+  def test_the_application_errors_403_when_payload_has_already_been_created
     post '/sources', {identifier: "jumpstartlab", rootUrl:"http://jumpstartlab.com"}
     post '/sources/jumpstartlab/data', @data
     post '/sources/jumpstartlab/data', @data

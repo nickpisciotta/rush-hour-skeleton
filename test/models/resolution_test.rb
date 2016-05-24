@@ -23,4 +23,8 @@ class ResolutionTest < Minitest::Test
   def test_it_does_not_validate_new_referrer_with_missing_fields
     refute @resolution4.valid?
   end
+
+  def test_resolution_responds_to_payload_requests
+    assert @resolution1.respond_to?(:payload_requests)
+  end
 end

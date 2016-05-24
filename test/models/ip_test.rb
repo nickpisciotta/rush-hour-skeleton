@@ -16,4 +16,8 @@ class IpTest < Minitest::Test
     refute @ip2.valid?
   end
 
+  def test_ip_responds_to_payload_requests
+    assert @ip1.respond_to?(:payload_requests)
+  end
+
 end

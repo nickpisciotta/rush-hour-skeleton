@@ -16,5 +16,9 @@ class RequestTest < Minitest::Test
     refute @request2.valid?
   end
 
+  def test_request_responds_to_payload_requests
+    assert @request1.respond_to?(:payload_requests)
+  end
+
 
 end

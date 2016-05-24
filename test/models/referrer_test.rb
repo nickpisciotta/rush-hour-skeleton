@@ -16,5 +16,8 @@ class ReferrerTest < Minitest::Test
     refute @referrer2.valid?
   end
 
+  def test_referrer_responds_to_payload_requests
+    assert @referrer1.respond_to?(:payload_requests)
+  end
 
 end
