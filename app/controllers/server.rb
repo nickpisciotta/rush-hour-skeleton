@@ -21,8 +21,8 @@ require_relative "../models/client_helper"
       body (result[1])
     end
 
-    get '/sources/:IDENTIFIER' do |identifier|
-      @client = Client.find_by(identifier: identifier)
+    get '/sources/:identifier' do |identifier|
+      @client = Client.find_by(identifier: identifier) 
         if @client.nil?
           body "The identifier does not exist."
         elsif @client.payload_requests.exists?
@@ -33,17 +33,17 @@ require_relative "../models/client_helper"
         end
     end
 
-    get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do |identifier, relativepath|
+    get '/sources/:identifier/urls/:relativepath' do |identifier, relativepath|
       find_urls_from_a_payload_requests(identifier, relativepath)
       @single_url.valid? ?  (erb :show) : (erb :not_requested)
     end
 
-    get '/sources/:IDENTIFIER/events/:EVENTNAME' do |identifier, eventname|
+    get '/sources/:identifier/events/:eventname' do |identifier, eventname|
       event_exists = parse_event_data(identifier, eventname)
       event_exists ? (erb :events) : (erb :no_event)
     end
 
-    get '/sources/:IDENTIFIER/events' do |identifier|
+    get '/sources/:identifier/events' do |identifier|
       get_events(identifier)
       erb :client_events
     end
@@ -52,7 +52,7 @@ require_relative "../models/client_helper"
       erb :error
     end
 
-    get '/sources/:IDENTIFIER/events/:EVENTNAME' do |identifier, eventname|
+    get '/sources/:identifier/events/:eventname' do |identifier, eventname|
       event_exists = parse_event_data(identifier, eventname)
       event_exists ? (erb :show) : (erb :no_event)
     end

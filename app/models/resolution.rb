@@ -5,7 +5,7 @@ class Resolution < ActiveRecord::Base
   validates :height, presence: true
 
   def self.screen_resolutions
-    self.pluck(:width, :height)
+    self.pluck(:width, :height).uniq 
   end
 
 end

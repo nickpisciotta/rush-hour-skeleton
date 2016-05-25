@@ -122,12 +122,6 @@ class PayloadRequestTest < Minitest::Test
     assert_equal ["www.example.com", "http://jumpstartlab.com/blog"], urls
   end
 
-  def test_event_most_received_to_least
-    events = PayloadRequest.event_most_received_to_least
-
-    assert_equal ["antisocialLogin", "socialLogin"], events
-  end
-
   def test_if_all_http_verbs_are_returned
     verbs = PayloadRequest.all_http_verbs
 
