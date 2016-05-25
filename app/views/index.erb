@@ -1,21 +1,21 @@
 <ul>
-  <li>Average response time across all requests: <%= @requests.average_response_time %></li>
+  <li>Average response time across all requests: <%= @client.payload_requests.average_response_time %></li>
 
-  <li>Max Response time accross all requests: <%= @requests.max_response_time %></li>
+  <li>Max Response time accross all requests: <%= @client.payload_requests.max_response_time %></li>
 
-  <li>Min Response time across all requests: <%= @requests.min_response_time %></li>
+  <li>Min Response time across all requests: <%= @client.payload_requests.min_response_time %></li>
 
-  <li>Most frequent request type: <%= @requests.most_frequent_request_type %></li>
+  <li>Most frequent request type: <%= @client.payload_requests.most_frequent_request_type %></li>
 
-  <li>List of all HTTP verbs used: <%= @requests.all_http_verbs %></li>
+  <li>List of all HTTP verbs used: <%= @client.payload_requests.all_http_verbs %></li>
 
-  <li>List of URLs listed from most requested to least requested: <%= @requests.url_most_requested_to_least %></li>
+  <li>List of URLs listed from most requested to least requested: <%= @client.payload_requests.url_most_requested_to_least %></li>
 
-  <li>Web browser breakdown across all requests(userAgent): <%= @user_agents.web_browser_breakdown %> </li>
+  <li>Web browser breakdown across all requests(userAgent): <%= @client.user_agent_bs.web_browser_breakdown %> </li>
 
-  <li>OS breakdown across all requests(userAgent): <%= @user_agents.os_breakdown %> </li>
+  <li>OS breakdown across all requests(userAgent): <%= @client.user_agent_bs.os_breakdown %> </li>
 
-  <li>Screen Resolutions across all requests (resolutionWidth x resolutionHeight): <%= @resolutions.screen_resolutions %> </li>
+  <li>Screen Resolutions across all requests (resolutionWidth x resolutionHeight): <%= @client.resolutions.screen_resolutions %> </li>
 
-  <li>Events listed from most received to least: <%= @events.event_most_recieved_to_least(@requests) %> </li>
+  <li>Events listed from most received to least: <%= @client.find_events_for_client %> </li>
 </ul>

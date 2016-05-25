@@ -95,7 +95,7 @@ class UrlTest < Minitest::Test
     url = Url.find(@url_id)
     range = url.response_times_across_all_requests
 
-    assert_equal [50, 50, 37], range
+    assert_equal [37, 50, 50], range.sort
   end
 
   def test_average_response_time
@@ -109,7 +109,7 @@ class UrlTest < Minitest::Test
     url = Url.find(@url_id)
     verbs = url.http_verbs_associated
 
-    assert_equal ["GET", "POST"], verbs
+    assert_equal ["GET", "POST"], verbs.sort
   end
 
   def test_it_can_output_most_popular_referrers
@@ -122,21 +122,21 @@ class UrlTest < Minitest::Test
     url = Url.find(@url_id)
     user_agents = url.most_popular_user_agents
 
-    assert_equal [["Chrome", "Macintosh"], ["Internet Explorer", "Windows"], ["Seamonkey", "Windows"]], user_agents
+    assert_equal [["Chrome", "Macintosh"], ["Internet Explorer", "Windows"], ["Seamonkey", "Windows"]], user_agents.sort
   end
 
   def test_it_can_ouput_browser_breakdown
     url = Url.find(@url_id)
     browser = url.web_browser_breakdown
 
-    assert_equal ["Chrome", "Internet Explorer", "Seamonkey"], browser
+    assert_equal ["Chrome", "Internet Explorer", "Seamonkey"], browser.sort
   end
 
   def test_it_can_ouput_os_breakdown
     url = Url.find(@url_id)
     os = url.os_breakdown
 
-    assert_equal ["Macintosh", "Windows"], os
+    assert_equal ["Macintosh", "Windows"], os.sort
   end
 
 end
