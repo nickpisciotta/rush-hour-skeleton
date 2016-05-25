@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <h2>Your Events</h2>
+  <% @event_names.each do |name| %>
+  	<h3 ><a href="/sources/<%= @client.identifier %>/events/<%= name %>"> <%= name %></a></h3>
+  <% end %>
+  </div>
+</div>

@@ -47,8 +47,6 @@ class PayloadRequest < ActiveRecord::Base
     self.minimum(:responded_in)
   end
 
-  def self.event_most_received_to_least
-    self.order('event_id DESC').includes(:event).pluck(:name).uniq
-  end
+  
 
 end

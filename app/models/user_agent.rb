@@ -4,10 +4,12 @@ class UserAgentB < ActiveRecord::Base
   validates :browser, presence: true
   validates :platform, presence: true
 
-  def web_browser_breakdown
+  def self.web_browser_breakdown
     pluck(:browser).uniq
   end
 
-
+  def self.os_breakdown
+    pluck(:platform).uniq
+  end
 
 end

@@ -20,7 +20,12 @@ class Client < ActiveRecord::Base
   end
 
   def find_urls_by_relative_paths(path)
-    payload_requests.where(url: Url.find_by(address: path))
+    urls.where(address: path).uniq.first
   end
+
+  def find_events_for_client
+    events.group(:name).order(count: :desc).count.keys 
+  end
+
 
 end

@@ -61,56 +61,6 @@ class PayloadRequestTest < Minitest::Test
   @payload2 = parser.parse_payload(@string2, "www.google.com")
   @payload3 = parser.parse_payload(@string3, "www.google.com")
   @payload4 = parser.parse_payload(@string4, "www.google.com")
-
-  # @payload =  PayloadRequest.create({
-  #                         :url_id=> "1",
-  #                         :requested_at=> "2015-02-20",
-  #                         :responded_in=> 37,
-  #                         :referrer_id=> "http://jumpstartlab.com",
-  #                         :request_id=> 2,
-  #                         :parameters=> [],
-  #                         :event_id=> 1,
-  #                         :user_agent_b_id=> "1",
-  #                         :resolution_id=> "1",
-  #                         :ip_id=> "63.29.38.211"
-  #                         })
-  #
-  # @payload2 = PayloadRequest.create({
-  #                         :url_id=> "1",
-  #                         :requested_at=> "",
-  #                         :responded_in=> 100,
-  #                         :referrer_id=> "http://jumpstartlab.com",
-  #                         :request_id=> 1,
-  #                         :parameters=> [],
-  #                         :event_id=> 2,
-  #                         :user_agent_b_id=> "1",
-  #                         :resolution_id=> "2",
-  #                         :ip_id=> "63.19.32.211"
-  #                         })
-  # @payload3 = PayloadRequest.create({
-  #                         :url_id=> "1",
-  #                         :requested_at=> "2015-06-06",
-  #                         :responded_in=> 100,
-  #                         :referrer_id=> "http://jumpstartlab.com",
-  #                         :request_id=> 1,
-  #                         :parameters=> [],
-  #                         :event_id=> 2,
-  #                         :user_agent_b_id=> "1",
-  #                         :resolution_id=> "2",
-  #                         :ip_id=> "63.19.32.211"
-  #                         })
-  # @payload4 = PayloadRequest.create({
-  #                         :url_id=> "2",
-  #                         :requested_at=> "2015-06-06",
-  #                         :responded_in=> 100,
-  #                         :referrer_id=> "http://jumpstartlab.com",
-  #                         :request_id=> 1,
-  #                         :parameters=> [],
-  #                         :event_id=> 2,
-  #                         :user_agent_b_id=> "1",
-  #                         :resolution_id=> "2",
-  #                         :ip_id=> "63.19.32.211"
-  #                         })
   end
 
   def test_it_validates_new_payload_request_with_all_fields
