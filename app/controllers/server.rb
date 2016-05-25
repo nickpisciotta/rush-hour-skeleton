@@ -52,5 +52,9 @@ require_relative "../models/client_helper"
       erb :error
     end
 
+    get '/sources/:IDENTIFIER/events/:EVENTNAME' do |identifier, eventname|
+      event_exists = parse_event_data(identifier, eventname)
+      event_exists ? (erb :show) : (erb :no_event)
+    end
   end
 end
